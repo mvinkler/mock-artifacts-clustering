@@ -3,14 +3,12 @@ package client;
 import java.security.PrivilegedActionException;
 import java.security.Provider;
 import java.util.Hashtable;
-import java.util.Properties;
 import java.util.Scanner;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 
 import org.jboss.test.clusterbench.ejb.stateful.RemoteStatefulSB;
-import org.jboss.test.clusterbench.ejb.stateful.RemoteStatefulSBImpl;
 import org.wildfly.security.WildFlyElytronProvider;
 import org.wildfly.security.auth.client.AuthenticationConfiguration;
 import org.wildfly.security.auth.client.AuthenticationContext;
@@ -36,10 +34,12 @@ public class Client {
 
         Context context = new InitialContext(jndiProperties);
 
-        String beanName = RemoteStatefulSBImpl.class.getSimpleName();
+        String beanName = "RemoteStatefulSBImpl";
         String viewClassName = RemoteStatefulSB.class.getName();
+        String lookupString = "ejb:clusterbench-ee7/clusterbench-ee7-ejb//" + beanName + "!" + viewClassName + "?stateful";
+        System.out.println("lookup string: " + lookupString);
 
-        RemoteStatefulSB remoteStatefulSB = (RemoteStatefulSB) context.lookup("ejb:clusterbench-ee7/clusterbench-ee7-ejb//" + beanName + "!" + viewClassName + "?stateful");
+        RemoteStatefulSB remoteStatefulSB = (RemoteStatefulSB) context.lookup(lookupString);
 
         System.out.println("remoteStatefulSB: " + remoteStatefulSB.toString());
 
