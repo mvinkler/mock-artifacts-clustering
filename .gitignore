@@ -1,0 +1,19 @@
+# Backup files
+*.*~
+
+# Eclipse IDE
+.classpath
+.project
+.settings
+
+# Maven
+target/
+
+# NetBeans IDE
+nb-configuration.xml
+*.NavData
+
+# IntelliJ IDEA IDE
+.idea/
+*.iml
+*.ipr
