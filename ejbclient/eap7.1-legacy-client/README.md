@@ -1,4 +1,4 @@
-### Legacy (3.x) and New (4.x) EJB client - example
+### EAP 7.0 (2.x) EJB client - reproducer for JBEAP-11449
 
 1. git clone https://github.com/mvinkler/mock-artifacts-clustering.git
    cd mock-artifacts-clustering/ejbclient/eap7.1-legacy-client/
