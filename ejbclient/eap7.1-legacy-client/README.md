@@ -1,4 +1,4 @@
-### EAP 7.0 (2.x) EJB client - reproducer for JBEAP-11449
+### EAP 7.1 legacy (3.x) EJB client - reproducer for JBEAP-11449
 
 1. git clone https://github.com/mvinkler/mock-artifacts-clustering.git
    cd mock-artifacts-clustering/ejbclient/eap7.1-legacy-client/
@@ -10,8 +10,8 @@
 3. build `server` project, deploy it to both servers
 
 4. build and run `client` project using 
-  mvn clean package
-  mvn exec:exec -Pejbclient2x
+  mvn clean package -Pejbclient3x
+  mvn exec:exec -Pejbclient3x
   
 5. press ENTER few times in the terminal with the running client, invocations go to one of the two nodes (each time the same node)
 6. kill the server which handled the invocations
