@@ -19,14 +19,14 @@ public class Client {
 
     public static void main(String[] args)
             throws NamingException, PrivilegedActionException, InterruptedException {
-        Security.addProvider(new WildFlyElytronProvider());       // FIXME this is a workaround for JBEAP-10167 and should not be needed
         InitialContext ctx = new InitialContext(getCtxProperties());
         try {
             String lookupName = "ejb:/server/HelloBean!ejb.HelloBeanRemote?stateful";
             HelloBeanRemote bean = (HelloBeanRemote)ctx.lookup(lookupName);
+            System.out.println("Lookup successful: remoteStatefulSB: " + bean.toString());
             // FIXME this is needed to get clustering working in DR16 with stateful beans...
             // it's not needed for stateless beans or if not invoking a cluster
-            EJBClient.setStrongAffinity(bean, Affinity.NONE);
+//            EJBClient.setStrongAffinity(bean, Affinity.NONE);
             for(int i = 0; i<20; i++) {
                 System.out.println(bean.hello());
                 TimeUnit.SECONDS.sleep(1);
@@ -41,5 +41,7 @@ public class Client {
         props.put(Context.INITIAL_CONTEXT_FACTORY, WildFlyInitialContextFactory.class.getName());
         return props;
     }
+
+
 
 }

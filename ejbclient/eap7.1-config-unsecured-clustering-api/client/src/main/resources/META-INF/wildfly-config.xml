@@ -1,0 +1,9 @@
+<configuration>
+    <jboss-ejb-client xmlns="urn:jboss:wildfly-client-ejb:3.0">
+        <global-interceptors/>
+        <connections>
+            <connection uri="http-remoting://localhost:8180"/>
+            <!--<connection uri="http-remoting://localhost:8280"/>-->
+        </connections>
+    </jboss-ejb-client>
+</configuration>
