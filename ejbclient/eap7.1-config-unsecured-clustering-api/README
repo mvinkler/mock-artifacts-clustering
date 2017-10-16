@@ -1,4 +1,0 @@
-- unzip EAP distro
-- build server side, deploy
-- run client side using mvn exec:exec
-
